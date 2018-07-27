@@ -1,6 +1,6 @@
 {
     "name": "mastoshare",
-    "description": "Mastoshare For Chrome",
+    "description": "Mastoshare For Firefox",
     "version": "1.1.0",
     "manifest_version": 2,
     "browser_action": {

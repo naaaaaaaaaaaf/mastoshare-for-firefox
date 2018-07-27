@@ -1,12 +1,12 @@
 load()
 function load() {
-  chrome.storage.sync.get(null, function(items) {
-    let an = ''
-    for (let id in items) {
-      an += "<option value='" + items[id] + "'>" + items[id] + '</option>'
-    }
-    document.getElementById('instance').innerHTML = an
-  })
+  var an =
+    '<option value="mstdn.jp">mstdn.jp</option><option value="friends.nico">friends.nico</option><option value="pawoo.net">pawoo.net</option>'
+  for (var i = 0, length = localStorage.length; i < length; ++i) {
+    an +=
+      "<option value='" + localStorage[i] + "'>" + localStorage[i] + '</option>'
+  }
+  document.getElementById('instance').insertAdjacentHTML('beforeend', an)
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,15 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
           let option = document.createElement('option')
           option.value = addInstanceurl
           option.text = addInstanceurl
-          chrome.storage.sync.get(null, function(items) {
-            let size = 0
-            for (let prop in items) {
-              if (items.hasOwnProperty(prop)) {
-                size++
-              }
-            }
-            chrome.storage.sync.set({ [size]: addInstanceurl }, function() {})
-          })
+          let listNumber = localStorage.length.toString()
+          localStorage.setItem(listNumber, addInstanceurl)
           let target = document.getElementsByName('instance')[0]
           target.add(option)
           msg =
@@ -60,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   })
   document.getElementById('del').addEventListener('click', function() {
-    chrome.storage.sync.clear()
+    localStorage.clear()
     load()
   })
 })
