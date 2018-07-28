@@ -1,13 +1,13 @@
-body{
+body {
   min-width: 300px;
   margin-bottom: 30px;
   font-family: Segoe UI, Arial, sans-serif;
   font-size: 1rem;
   background-color: #282c37;
 }
-.error{
+.error {
   font-size: 1rem;
 }
-.container{
+.container {
   width: 20rem;
 }

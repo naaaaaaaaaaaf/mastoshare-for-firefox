@@ -1,8 +1,7 @@
 load()
 function load() {
-  var an =
-    '<option value="mstdn.jp">mstdn.jp</option><option value="friends.nico">friends.nico</option><option value="pawoo.net">pawoo.net</option>'
-  for (var i = 0, length = localStorage.length; i < length; ++i) {
+  let an = ''
+  for (let i = 0, length = localStorage.length; i < length; ++i) {
     an +=
       "<option value='" + localStorage[i] + "'>" + localStorage[i] + '</option>'
   }
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
           let target = document.getElementsByName('instance')[0]
           target.add(option)
           msg =
-            '<div class="alert alert-info error" role="alert">追加しました。このリストはChromeにログイン中のGoogleアカウントに保存されます</div>'
+            '<div class="alert alert-info error" role="alert">追加しました。このリストはブラウザに保存されます</div>'
           document.getElementById('info').insertAdjacentHTML('beforeend', msg)
         } else {
           msg =
